@@ -10,6 +10,34 @@ services:
             options:
                 max-size: 10m
                 max-file: "3"
+    
+    postgres-data:
+        image: postgres
+        environment:
+            - POSTGRES_USER=root
+            - POSTGRES_PASSWORD=root
+            - POSTGRES_DB=docker
+        volumes:
+            - ${PWD}/postgres:/var/lib/postgresql/data
+        ports:
+            - "5435:5432"
+    
+    s3:
+        image: localstack/localstack-full
+        ports:
+            - "4572:4572"
+            - "8055:8080"
+        environment:
+            - SERVICES=s3
+            - DEBUG=1
+            - DATA_DIR=/tmp/localstack/data
+            - AWS_ACCESS_KEY_ID=teste
+            - AWS_SECRET_ACCESS_KEY=teste
+        volumes:
+            - ./tmp/localstack:/tmp/localstack
+            - /var/run/docker.sock:/var/run/docker.sock
+        # command: bash -c "awslocal s3 mb s3://airflow"
+        # para validar se está rodando acesse localhost:4566
 
     webserver:
         image: neylsoncrepalde/airflow-docker:latest

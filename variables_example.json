@@ -1,0 +1,18 @@
+{
+  "MONGO_USER": "",
+  "MONGO_PASS": "",
+  "MONGO_HOST": "",
+  "MONGO_BASE": "",
+
+  "PATH_IBGE_CURL": "https://servicodados.ibge.gov.br/api/v1/localidades/estados/MG/mesorregioes",
+
+  "AWS_ACCESS_KEY_ID": "teste",
+  "AWS_SECRET_ACCESS_KEY": "teste",
+
+  "S3_NAME_BUCKET": "airflow",
+  "S3_HOST_BUCKET": "http://s3:4566",
+
+  "POSTGRES_USER": "root",
+  "POSTGRES_PASS": "root",
+  "POSTGRES_HOST": "postgres-data:5432/docker"
+}
